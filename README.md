@@ -24,6 +24,18 @@ https://github.com/Daniel-McDonald95/ClaudeChat-Snow-Leopard/releases/latest
 - Xcode 3.2.6
 - Open iChatAI.xcodeproj and build
 
+## Roadmap
+
+### v1.0
+- Initial Release
+
+### Planned
+- Conversation History
+- OpenAI Support
+- Better iChat styling
+- Saved chats
+- AI personalities
+
 ## Version History
 - v1.0 - Initial release
 - v1.0.1 Bug Fixes
