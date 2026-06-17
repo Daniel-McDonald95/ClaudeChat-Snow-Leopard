@@ -163,6 +163,10 @@ static NSString *CCBase64EncodeData(NSData *data) {
 
     NSString *bodyString = [self buildRequestJSON:messages];
 
+    // Write body to temp file to avoid ARG_MAX limit with large image payloads
+    NSString *tmpBodyPath = @"/tmp/ichatai_req.json";
+    [bodyString writeToFile:tmpBodyPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+
     NSString *proxyBase = [[NSUserDefaults standardUserDefaults] stringForKey:@"CCProxyBaseURL"];
     NSString *endpoint;
     if (proxyBase && [proxyBase length] > 0) {
@@ -178,7 +182,7 @@ static NSString *CCBase64EncodeData(NSData *data) {
         @"-H", [NSString stringWithFormat:@"x-api-key: %@", _apiKey],
         @"-H", @"anthropic-version: 2023-06-01",
         @"-H", @"content-type: application/json",
-        @"-d", bodyString,
+        @"--data-binary", [@"@" stringByAppendingString:tmpBodyPath],
         endpoint,
         nil]];
 
