@@ -38,7 +38,7 @@ https://github.com/Daniel-McDonald95/ClaudeChat-Snow-Leopard/releases/latest
 
 ## Version History
 - v1.0 - Initial release
-- v1.0.1 Bug Fixes
+- v1.0.1 - Bug Fixes
  
 
 ## Screenshots
